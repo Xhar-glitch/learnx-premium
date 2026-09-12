@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#07050d">
+  <meta name="description" content="LearnX Premium — dashboard belajar futuristik">
+  <title>LearnX — Premium Learning OS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="boot" class="boot">
+    <div class="boot-core"><span></span></div>
+    <div class="boot-name">LEARN<span>X</span></div>
+    <div class="boot-status">INITIALIZING LEARNING OS</div>
+  </div>
+
+  <!-- Simulated fingerprint gate -->
+  <section id="authGate" class="auth-gate">
+    <div class="auth-orbit o1"></div><div class="auth-orbit o2"></div>
+    <div class="auth-card glass">
+      <div class="brand-mini"><span class="brand-mark">LX</span><span>LEARNX</span></div>
+      <div class="lock-orb"><span class="svg-icon" data-icon="core"></span></div>
+      <h1>Verifikasi Akses</h1>
+      <p class="muted">Sentuh sensor sidik jari untuk membuka Learning OS.</p>
+      <button id="fingerprint" class="fingerprint-btn" aria-label="Simulasi sidik jari">
+        <span class="fingerprint-halo"></span>
+        <svg class="fingerprint-svg" viewBox="0 0 160 190" aria-hidden="true">
+          <defs><linearGradient id="fp" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8f6cff"/><stop offset=".5" stop-color="#d7c5ff"/><stop offset="1" stop-color="#7048ff"/></linearGradient></defs>
+          <g class="fp-ridge" fill="none" stroke="url(#fp)" stroke-width="2.35" stroke-linecap="round">
+            <path d="M80 20C48 20 30 44 30 76c0 22 7 39 16 53"/>
+            <path d="M80 29C55 29 39 48 39 76c0 20 6 36 15 50"/>
+            <path d="M80 38C62 38 48 53 48 77c0 18 6 32 15 45"/>
+            <path d="M80 47C69 47 57 59 57 78c0 16 5 28 14 40"/>
+            <path d="M80 56C75 56 66 65 66 79c0 13 4 23 14 34"/>
+            <path d="M80 20C112 20 130 44 130 76c0 22-7 39-16 53"/>
+            <path d="M80 29C105 29 121 48 121 76c0 20-6 36-15 50"/>
+            <path d="M80 38C98 38 112 53 112 77c0 18-6 32-15 45"/>
+            <path d="M80 47C91 47 103 59 103 78c0 16-5 28-14 40"/>
+            <path d="M80 56C85 56 94 65 94 79c0 13-4 23-14 34"/>
+            <path d="M80 62c-8 0-13 7-13 17 0 14 6 25 13 34 7-9 13-20 13-34 0-10-5-17-13-17Z"/>
+            <path d="M45 137c10 10 22 15 35 15s25-5 35-15"/>
+          </g>
+          <path class="finger-scan" d="M35 91h90"/>
+        </svg>
+      </button>
+      <div id="authStatus" class="auth-status"><i></i> SENSOR SIAP</div>
+      <div class="security-note">SIMULASI BIOMETRIK • DATA TIDAK DIKIRIM</div>
+    </div>
+  </section>
+
+  <!-- Intro video -->
+  <section id="intro" class="intro hidden">
+    <div class="intro-video-wrap">
+      <video id="introVideo" playsinline webkit-playsinline preload="auto" autoplay muted playsinline webkit-playsinline poster="assets/intro-poster.jpg">
+        <source src="assets/intro.mp4" type="video/mp4">
+      </video>
+      <div class="video-vignette"></div>
+      <div class="intro-top">
+        <span class="pill">LEARNX • INTRO</span>
+        <button id="introMute" class="icon-btn" title="Mute video"><span class="svg-icon" data-icon="volume"></span></button>
+      </div>
+      <div id="videoError" class="video-error hidden">VIDEO INTRO TIDAK DAPAT DIMUAT</div>
+      <div id="nextWrap" class="next-wrap">
+        <div class="video-complete">INTRO SELESAI</div>
+        <button id="nextBtn" class="primary-btn">Berikutnya <span class="svg-icon" data-icon="arrow"></span></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main application -->
+  <div id="app" class="app hidden">
+    <aside class="sidebar glass">
+      <div class="logo"><span class="logo-icon">LX</span><div><b>LearnX</b><small>Learning OS</small></div></div>
+      <nav>
+        <button class="nav-item active" data-section="dashboard"><span class="svg-icon" data-icon="home"></span>Dashboard</button>
+        <button class="nav-item" data-section="curriculum"><span class="svg-icon" data-icon="layers"></span>Kurikulum</button>
+        <button class="nav-item" data-section="iq"><span class="svg-icon" data-icon="brain"></span>Tes IQ</button>
+        <button class="nav-item" data-section="japanese"><span class="svg-icon" data-icon="language"></span>Bahasa Jepang</button>
+        <button class="nav-item" data-section="psychology"><span class="svg-icon" data-icon="mind"></span>Psikologi</button>
+        <button class="nav-item" data-section="focus"><span class="svg-icon" data-icon="focus"></span>Focus Room</button>
+        <button class="nav-item" data-section="notes"><span class="svg-icon" data-icon="notes"></span>Catatan</button>
+        <button class="nav-item" data-section="progress"><span class="svg-icon" data-icon="chart"></span>Progress</button>
+      </nav>
+      <div class="side-bottom">
+        <div class="mini-system"><span class="live-dot"></span><div><b>Learning Core</b><small>Semua sistem normal</small></div></div>
+        <button class="nav-item" data-section="settings"><span class="svg-icon" data-icon="settings"></span>Pengaturan</button>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar glass">
+        <div class="mobile-brand">LX</div>
+        <div class="search"><span class="svg-icon" data-icon="search"></span><input id="globalSearch" placeholder="Cari materi, pelajaran, tugas..." autocomplete="off"><kbd>Ctrl K</kbd></div>
+        <div class="top-actions"><span class="top-brand-name">LEARNX</span>
+          <button class="round-btn" id="musicOpen" title="Music"><span class="svg-icon" data-icon="music"></span></button>
+          <button class="round-btn" id="themeBtn" title="Mode"><span class="svg-icon" data-icon="moon"></span></button>
+          <button class="round-btn" title="Notifikasi"><span class="svg-icon" data-icon="bell"></span><em>3</em></button>
+          <div class="profile"><div class="avatar">S</div><div><b>Siswa Hebat</b><small>Level 12 • 2.480 XP</small></div><span class="svg-icon" data-icon="chevron"></span></div>
+        </div>
+      </header>
+
+      <section id="dashboard" class="page active-page">
+      <section class="hero glass">
+        <div class="hero-copy">
+          <div class="eyebrow">LEARNX PREMIUM OS <span>● ONLINE</span></div>
+          <h1>Belajar lebih dalam.<br><strong>Tumbuh lebih jauh.</strong></h1>
+          <p>Semua ruang belajar dalam satu sistem yang cepat, teratur, dan terasa premium.</p>
+          <div class="hero-actions"><button class="primary-btn" data-section="curriculum">Mulai Belajar <span class="svg-icon" data-icon="arrow"></span></button><button class="ghost-btn" data-section="focus">Focus Room</button></div>
+        </div>
+        <div class="hero-art">
+          <div class="orbital orbital-a"></div><div class="orbital orbital-b"></div>
+          <div class="book3d"><span class="svg-icon" data-icon="book"></span></div>
+          <div class="float-icon fi-a"><span class="svg-icon" data-icon="spark"></span></div><div class="float-icon fi-b"><span class="svg-icon" data-icon="language"></span></div><div class="float-icon fi-c"><span class="svg-icon" data-icon="brain"></span></div><div class="float-icon fi-d"><span class="svg-icon" data-icon="core"></span></div>
+        </div>
+      </section>
+
+
+      <!-- Dashboard base: supplied blonde visual -->
+      <section class="dashboard-media glass" aria-label="LearnX dashboard base">
+        <div class="media-head">
+          <div><span class="section-kicker">LEARNX VISUAL CORE</span><h2>Study Atmosphere</h2></div>
+          <div class="media-status"><span class="live-dot"></span> ACTIVE</div>
+        </div>
+        <div class="dashboard-visual">
+          <video id="dashboardVideo" playsinline webkit-playsinline preload="auto"
+                 poster="assets/dashboard-base-poster.jpg" muted loop>
+            <source src="assets/dashboard-base.mp4" type="video/mp4">
+          </video>
+          <div class="media-vignette"></div>
+          <button id="dashboardMute" class="media-control" title="Mute visual audio" aria-label="Mute visual audio">
+            <span class="svg-icon" data-icon="volume-off"></span>
+          </button>
+          <div class="media-caption"><span class="media-orbit"></span>
+            <div><b>LearnX Visual Session</b><small>Dashboard base • live motion</small></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- swipeable curriculum rail -->
+      <section class="section-block">
+        <div class="section-head"><div><span class="section-kicker">QUICK ACCESS</span><h2>Kurikulum & Ruang Belajar</h2></div><button class="text-btn" data-section="curriculum">Lihat semua <span class="svg-icon" data-icon="arrow"></span></button></div>
+        <div class="horizontal-rail" id="curriculumRail">
+          <button class="module-card blue" data-section="curriculum"><span class="module-icon"><span class="svg-icon" data-icon="math"></span></span><b>Matematika</b><small>12 modul • 78%</small><i style="--p:78%"></i></button>
+          <button class="module-card pink" data-section="curriculum"><span class="module-icon">文</span><b>Bahasa Jepang</b><small>18 modul • 64%</small><i style="--p:64%"></i></button>
+          <button class="module-card violet" data-section="curriculum"><span class="module-icon">A</span><b>Bahasa Inggris</b><small>10 modul • 82%</small><i style="--p:82%"></i></button>
+          <button class="module-card green" data-section="curriculum"><span class="module-icon"><span class="svg-icon" data-icon="science"></span></span><b>IPA</b><small>11 modul • 70%</small><i style="--p:70%"></i></button>
+          <button class="module-card gold" data-section="curriculum"><span class="module-icon"><span class="svg-icon" data-icon="globe"></span></span><b>IPS</b><small>9 modul • 60%</small><i style="--p:60%"></i></button>
+          <button class="module-card red" data-section="curriculum"><span class="module-icon"><span class="svg-icon" data-icon="civic"></span></span><b>PKN</b><small>8 modul • 88%</small><i style="--p:88%"></i></button>
+          <button class="module-card cyan" data-section="curriculum"><span class="module-icon"><span class="svg-icon" data-icon="code"></span></span><b>Informatika</b><small>14 modul • 75%</small><i style="--p:75%"></i></button>
+        </div>
+      </section>
+
+
+        <div class="stat-grid">
+          <article class="stat-card glass"><span class="stat-icon blue"><span class="svg-icon" data-icon="layers"></span></span><small>Mata Pelajaran</small><strong>8</strong><em>+2 bulan ini</em></article>
+          <article class="stat-card glass"><span class="stat-icon pink"><span class="svg-icon" data-icon="tasks"></span></span><small>Tugas Pending</small><strong>3</strong><em>Prioritas tinggi</em></article>
+          <article class="stat-card glass"><span class="stat-icon violet"><span class="svg-icon" data-icon="quiz"></span></span><small>Kuis Tersedia</small><strong>5</strong><em>2 baru</em></article>
+          <article class="stat-card glass"><span class="stat-icon gold"><span class="svg-icon" data-icon="streak"></span></span><small>Streak Belajar</small><strong>7<span> hari</span></strong><em>Rekor 18 hari</em></article>
+        </div>
+
+        <div class="dashboard-grid">
+          <article class="panel glass progress-panel">
+            <div class="panel-head"><div><span class="section-kicker">ANALYTICS</span><h2>Progress Belajar</h2></div><select><option>7 Hari terakhir</option><option>30 Hari</option></select></div>
+            <div class="chart">
+              <div class="bars"><i style="--h:35%"><span>Sen</span></i><i style="--h:48%"><span>Sel</span></i><i style="--h:55%"><span>Rab</span></i><i style="--h:63%"><span>Kam</span></i><i style="--h:71%"><span>Jum</span></i><i style="--h:82%"><span>Sab</span></i><i style="--h:66%"><span>Min</span></i></div>
+              <div class="chart-line"></div>
+            </div>
+          </article>
+
+          <article class="panel glass score-panel">
+            <div class="panel-head"><div><span class="section-kicker">PERFORMA</span><h2>Skor Rata-rata</h2></div></div>
+            <div class="score-ring"><div><strong>87</strong><small>/100</small></div></div>
+            <div class="trend"><span class="svg-icon" data-icon="trend"></span> 12% <span>dibanding minggu lalu</span></div>
+          </article>
+
+          <article class="panel glass tasks-panel">
+            <div class="panel-head"><div><span class="section-kicker">WORKFLOW</span><h2>Tugas Terbaru</h2></div><button class="text-btn">Semua <span class="svg-icon" data-icon="arrow"></span></button></div>
+            <div class="task"><span class="task-ico pink">B</span><div><b>Bahasa Indonesia — Teks Eksposisi</b><small>Deadline 12 Sep • <i>Belum dikerjakan</i></small></div><span>›</span></div>
+            <div class="task"><span class="task-ico blue"><span class="svg-icon" data-icon="math"></span></span><div><b>Matematika — Fungsi Kuadrat</b><small>Deadline 13 Sep • <i class="done">Dikerjakan</i></small></div><span>›</span></div>
+            <div class="task"><span class="task-ico gold"><span class="svg-icon" data-icon="civic"></span></span><div><b>PKN — Nilai-nilai Pancasila</b><small>Deadline 14 Sep • <i>Belum dikerjakan</i></small></div><span>›</span></div>
+          </article>
+
+          <article class="panel glass achievement-panel">
+            <div class="panel-head"><div><span class="section-kicker">REWARDS</span><h2>Pencapaian</h2></div><button class="text-btn">Semua <span class="svg-icon" data-icon="arrow"></span></button></div>
+            <div class="badges"><span><span class="svg-icon" data-icon="spark"></span><small>Pemula</small></span><span><span class="svg-icon" data-icon="star"></span><small>Rajin</small></span><span><span class="svg-icon" data-icon="crown"></span><small>Hebat</small></span><span class="locked"><span class="svg-icon" data-icon="master"></span><small>Master</small></span></div>
+          </article>
+        </div>
+      </section>
+
+      <section id="curriculum" class="page">
+        <div class="page-title"><span class="section-kicker">LEARNING CORE</span><h1>Kurikulum Lengkap</h1><p>Ruang belajar terstruktur untuk materi sekolah dan pengembangan kemampuan.</p></div>
+        <div class="feature-grid">
+          <article class="big-feature"><span>∑</span><h3>Matematika</h3><p>Aljabar, fungsi, geometri, statistika, dan latihan adaptif.</p><button>Masuk ruang →</button></article>
+          <article class="big-feature"><span>文</span><h3>Bahasa Jepang</h3><p>Hiragana, katakana, kosakata, tata bahasa, dan percakapan.</p><button data-section="japanese">Mulai →</button></article>
+          <article class="big-feature"><span>⌬</span><h3>IPA</h3><p>Fisika, kimia, biologi, eksperimen, dan kuis konsep.</p><button>Masuk ruang →</button></article>
+          <article class="big-feature"><span>⌘</span><h3>Informatika</h3><p>Algoritma, data, jaringan, keamanan digital, dan coding.</p><button>Masuk ruang →</button></article>
+        </div>
+      </section>
+
+      <section id="iq" class="page">
+        <div class="page-title"><span class="section-kicker">COGNITIVE LAB</span><h1>Tes IQ & Logika</h1><p>Bank soal dinamis: pola dan angka diacak setiap sesi. Skor ini adalah latihan penalaran, bukan pengukuran IQ klinis.</p></div>
+        <div class="quiz-card glass">
+          <div class="quiz-progress"><span id="iqBar"></span></div>
+          <span class="quiz-label">SOAL <b id="iqNum">1</b> / 10</span>
+          <h2 id="iqQuestion">Jika semua A adalah B, dan semua B adalah C, maka...</h2>
+          <div id="iqAnswers" class="answers"></div>
+          <div id="iqResult" class="result hidden"></div>
+        </div>
+      </section>
+
+      <section id="japanese" class="page">
+        <div class="page-title"><span class="section-kicker">LANGUAGE LAB</span><h1>Bahasa Jepang</h1><p>Belajar bertahap dari karakter sampai percakapan.</p></div>
+        <div class="jp-grid">
+          <article class="jp-card glass"><span>あ</span><b>Hiragana</b><small>46 karakter dasar</small><button>Latihan →</button></article>
+          <article class="jp-card glass"><span>カ</span><b>Katakana</b><small>46 karakter dasar</small><button>Latihan →</button></article>
+          <article class="jp-card glass"><span>語</span><b>Kosakata</b><small>500 kata umum</small><button>Mulai →</button></article>
+          <article class="jp-card glass"><span>話</span><b>Percakapan</b><small>Dialog situasional</small><button>Mulai →</button></article>
+        </div>
+      </section>
+
+      <section id="psychology" class="page">
+        <div class="page-title"><span class="section-kicker">MIND LAB</span><h1>Psikologi & Social Intelligence</h1><p>Belajar membaca situasi, mengatur emosi, komunikasi, dan pengaruh yang etis—bukan manipulasi atau cara menyakiti orang.</p></div>
+        <div class="mind-grid">
+          <article class="mind-card glass"><span>◎</span><b>Emotional Intelligence</b><p>Mengenali emosi dan merespons dengan lebih sadar.</p></article>
+          <article class="mind-card glass"><span>◌</span><b>Critical Thinking</b><p>Mendeteksi bias, klaim lemah, dan informasi menyesatkan.</p></article>
+          <article class="mind-card glass"><span>◇</span><b>Communication</b><p>Negosiasi, mendengar aktif, batasan sehat, dan persuasi etis.</p></article>
+          <article class="mind-card glass"><span>✦</span><b>Social Strategy</b><p>Membangun kepercayaan dan kerja sama tanpa mengeksploitasi orang.</p></article>
+        </div>
+      </section>
+
+      <section id="focus" class="page">
+        <div class="page-title"><span class="section-kicker">DEEP WORK</span><h1>Focus Room</h1><p>Ruang fokus minimalis dengan timer Pomodoro.</p></div>
+        <div class="focus-card glass"><div id="timer">25:00</div><div class="timer-actions"><button id="timerStart" class="primary-btn">Mulai</button><button id="timerReset" class="ghost-btn">Reset</button></div><div class="focus-orb"></div></div>
+      </section>
+
+      <section id="notes" class="page">
+        <div class="page-title"><span class="section-kicker">KNOWLEDGE VAULT</span><h1>Catatan</h1><p>Catatan tersimpan otomatis di perangkat ini.</p></div>
+        <textarea id="notesArea" class="notes glass" placeholder="Tulis ide, ringkasan, atau target belajar..."></textarea>
+      </section>
+
+      <section id="progress" class="page">
+        <div class="page-title"><span class="section-kicker">INSIGHT</span><h1>Progress & Statistik</h1><p>Ringkasan performa belajar kamu.</p></div>
+        <div class="stat-grid">
+          <article class="stat-card glass"><small>Total waktu belajar</small><strong>24,6<span> jam</span></strong><em>+18% minggu ini</em></article>
+          <article class="stat-card glass"><small>Materi selesai</small><strong>42</strong><em>6 minggu ini</em></article>
+          <article class="stat-card glass"><small>Quiz selesai</small><strong>31</strong><em>87% rata-rata</em></article>
+          <article class="stat-card glass"><small>XP</small><strong>2.480</strong><em>520 menuju level 13</em></article>
+        </div>
+      </section>
+
+      <section id="settings" class="page">
+        <div class="page-title"><span class="section-kicker">SYSTEM</span><h1>Pengaturan</h1><p>Preferensi antarmuka dan sistem.</p></div>
+        <div class="settings-card glass">
+          <label>Animasi live <input type="checkbox" checked id="liveToggle"><i></i></label>
+          <label>Efek sentuhan <input type="checkbox" checked id="touchToggle"><i></i></label>
+          <label>Suara UI <input type="checkbox" checked id="soundToggle"><i></i></label>
+        </div>
+      </section>
+
+      <footer>LearnX Premium • Learning OS • Dibuat untuk pengalaman belajar yang modern</footer>
+    </main>
+  </div>
+
+  <!-- Music dock -->
+  <div id="musicDock" class="music-dock glass">
+    <div class="music-head"><div class="disc"><span class="svg-icon" data-icon="music"></span></div><div><b id="trackName">Ambient Focus</b><small id="trackMeta">LearnX Sound Engine</small></div><button id="musicClose" aria-label="Tutup"><span class="svg-icon" data-icon="close"></span></button></div>
+    <div class="music-search"><span class="svg-icon" data-icon="search"></span><input id="musicSearch" placeholder="Cari musik..."></div>
+    <div id="trackList" class="track-list">
+      <button data-track="ambient">Ambient Focus <small>25 min</small></button>
+      <button data-track="night">Night Study <small>30 min</small></button>
+      <button data-track="zen">Zen Notes <small>20 min</small></button>
+    </div>
+    <div class="music-controls"><button id="prev"><span class="svg-icon" data-icon="prev"></span></button><button id="play" class="play"><span class="svg-icon" data-icon="play"></span></button><button id="next"><span class="svg-icon" data-icon="next"></span></button><input id="volume" type="range" min="0" max="1" step=".01" value=".35"></div>
+  </div>
+
+  <div id="toast" class="toast">Tersimpan</div>
+  <script src="icon-system.js"></script><script src="app.js"></script>
+</body>
+</html>
